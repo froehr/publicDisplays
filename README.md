@@ -1,5 +1,5 @@
 # Public Displays Havixbeck 2014
-This repository is used to create an a Public Displays app for a project week 2014 in Havixbek.
+This repository is used to create a Public Displays app for a project week in Havixbeck in september 2014.
 
 ----------
 
