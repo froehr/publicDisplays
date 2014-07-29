@@ -33,7 +33,7 @@ $dom = new DOMDocument;
 $i = 0;
 
 while($i < sizeof($cols)) {
-    $to_json_array['news'][$i] = chop(ltrim(htmlentities($cols[$i]->item(1)->nodeValue)));
+    $to_json_array[$i]['news'] = chop(ltrim(htmlentities($cols[$i]->item(1)->nodeValue)));
     $i++;
 }
 
