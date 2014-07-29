@@ -4,23 +4,47 @@ html {
 }
 
 body {
-	background-color: #8E8461;
 	font-family: 'Noto Sans', Arial, sans-serif;
-	font-size: 15px;
+	font-size: 13px;
 	height: 100%;
 	width: 100%;
 	margin: 0px;
+	overflow: hidden;
 }
 
 #left {
-    background-color:#000000;
     width: 50%;
-    height: 100%;
+    height: 95%;
+    float:left;
+    position:absolute;
+    top: 67px;
+    left:0px;
+	overflow: hidden;
+}
+
+#vertretungsplan {
+	position: absolute;
+	top: 0;
+}
+
+#left-top {
+	height: 67px;
+    width: 50%;
     float:left;
     position:absolute;
     top:0px;
     left:0px;
-    border: 1px solid white;
+	background-color: #FFFFFF;
+	z-index: 1;
+}
+
+h2 {
+	font-size: 15px;
+	padding-left: 10px;
+}
+
+p {
+	text-align: justify;
 }
 
 #right {
@@ -31,7 +55,6 @@ body {
     position:absolute;
     top:0px;
     left:50%;
-    border: 1px solid white;
 }
 
 #mensa {
@@ -41,4 +64,44 @@ body {
     left:55%;
     height:150px;
     width:150px;
+}
+
+#sport {
+    background-color:#FFFFFF;
+    position:absolute;
+    bottom:0%;
+    left:0%;
+    height:400px;
+    width:50%;
+}
+
+#tagesschau {
+    background-color:#FFFFFF;
+    position:absolute;
+    bottom:0%;
+    right:0%;
+    height:400px;
+    width:50%;
+}
+
+table {
+	border: 0px;
+	width: 100%;
+	padding: 5px;
+}
+
+table tr th {
+	padding: 1px;
+	border-bottom: 1px solid #000000;
+}
+
+table tr td {
+	padding: 3px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	border-bottom: 2px;
+}
+
+table tr td.grey {
+	background-color: #DDDDDD;
 }

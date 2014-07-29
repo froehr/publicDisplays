@@ -5,31 +5,41 @@
 		<title>Public Display</title>
 		
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<link href="js/lib/jquery/jquery-ui-1.10.4.css" rel="stylesheet" type="text/css" />
 		
 		<script src="js/lib/jquery/jquery-2.1.0.min.js"></script>
-		<script src="js/lib/jquery/jquery-ui-1.10.4.js"></script>
-		
 	</head>
 	<body>
 		<div id="page">
+			<div id="left-top">
+				<h2 id="vertretungsplan-head">Vertretungsplan vom </h2>
+				<table cellspacing="0" cellpadding="0">
+					<tr>
+						<th width="10%" align="left">Datum</th>
+						<th width="7%" align="center">Fach</th>
+						<th width="8%" align="center">Stunde</th>
+						<th width="20%" align="left">Klasse</th>
+						<th width="11%" align="center">Lehrer</th>
+						<th width="11%" align="center">Raum</th>
+						<th width="11%" align="center">V-Fach</th>
+						<th width="11%" align="center">Vertreter</th>
+						<th width="11%" align="center">V-Raum</th>
+					</tr>
+				</table>
+			</div>
 			<div id="left">
-				<div id="vertretungsplan">
-				
-				</div>
+				<table id="vertretungsplan" cellspacing="0" cellpadding="0">
+				</table>
 			</div>
 			<div id="right">
+				<div id="wetter"></div>
 				<div id="mensaplan"></div>
 				<div id="schulnews"></div>
-				<div id="tagesschau"></div>
-				<div id="wetter"></div>
-				<div id="sport"></div>
-				<div id="busfahrplan"></div>
-				
+				<div id="tagesschau"><h2>Nachrichten der ARD</h2></div>
+				<div id="sport"><h2>Sport</h2></div>
 			</div>
 		</div>
-	
-	<script src="js/ui.js"></script>
-
+		
+		<script src="js/ui.js"></script>
+		<script src="js/ajax.js"></script>
 	</body>
 </html>

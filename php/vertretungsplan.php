@@ -12,15 +12,16 @@ while($i < sizeof($csv)) {
     $i++;
 }
 
-// Datum f웦 heute laden um nur aktuelle Meldungen zu zeigen
-$today = date('Ymd' ,time());
+// Datum f체r heute laden um nur aktuelle Meldungen zu zeigen
+$today = date('Ymd', time());
+$today='20140605';
 
-// Die Zeilen ausw둯len, die den heutigen Tag betreffen
+// Die Zeilen ausw채hlen, die den heutigen Tag betreffen
 $result_array = [];
 $i = 0;
 $j = 0;
 while($i < sizeof($input_array)-1) {
-    // Wenn der Eintrag des g웞tigen Datums zum heutigen Datum passt wird diese Zeile im $result_array gespeichert um sp둻er weiterverarbeitet zu werden
+    // Wenn der Eintrag des g체ltigen Datums zum heutigen Datum passt wird diese Zeile im $result_array gespeichert um sp채ter weiterverarbeitet zu werden
     if($today == $input_array[$i][1]) {
         $result_array[$j] = $input_array[$i];
         $j++; 
@@ -28,22 +29,23 @@ while($i < sizeof($input_array)-1) {
     $i++;
 }
 
-// Array mit Namen f웦 JSON aufbauen
+// Array mit Namen f체r JSON aufbauen
 $to_json_array = [];
 $k = 0;
 while($k < sizeof($result_array)) {
-    $to_json_array[$k]["datum"] = $result_array[$k][1];
-    $to_json_array[$k]["stunde"] = $result_array[$k][2];
-    $to_json_array[$k]["lehrer"] = $result_array[$k][5];
-    $to_json_array[$k]["vertreter"] = $result_array[$k][6];
-    $to_json_array[$k]["fach"] = $result_array[$k][7];
-    $to_json_array[$k]["vertretungsfach"] = $result_array[$k][9];
-    $to_json_array[$k]["raum"] = $result_array[$k][11];
-    $to_json_array[$k]["vertretungsraum"] = $result_array[$k][12];
-    $to_json_array[$k]["klasse"] = $result_array[$k][14];
+	$date = $result_array[$k][1];
+    $to_json_array[$k]["datum"] = date('d.m.Y', mktime(0, 0, 0, $date[4] . $date[5], $date[6] . $date[7], $date[0] . $date[1] . $date[2] . $date[3]));
+    $to_json_array[$k]["stunde"] = utf8_encode($result_array[$k][2]);
+    $to_json_array[$k]["lehrer"] = utf8_encode($result_array[$k][5]);
+    $to_json_array[$k]["vertreter"] = utf8_encode($result_array[$k][6]);
+    $to_json_array[$k]["fach"] = utf8_encode($result_array[$k][7]);
+    $to_json_array[$k]["vertretungsfach"] = utf8_encode($result_array[$k][9]);
+    $to_json_array[$k]["raum"] = utf8_encode($result_array[$k][11]);
+    $to_json_array[$k]["vertretungsraum"] = utf8_encode($result_array[$k][12]);
+    $to_json_array[$k]["klasse"] = str_replace('~', ', ', utf8_encode($result_array[$k][14]));
     $k++;
 }
 
-// R웒kgabe des JSON Arrays an JavaScript
+// R체ckgabe des JSON Arrays an JavaScript
 echo json_encode($to_json_array);
 ?>
