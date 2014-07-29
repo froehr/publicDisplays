@@ -32,7 +32,8 @@ while($i < sizeof($input_array)-1) {
 $to_json_array = [];
 $k = 0;
 while($k < sizeof($result_array)) {
-    $to_json_array[$k]["datum"] = utf8_encode($result_array[$k][1]);
+	$date = $result_array[$k][1];
+    $to_json_array[$k]["datum"] = date('d.m.Y', mktime(0, 0, 0, $date[4] . $date[5], $date[6] . $date[7], $date[0] . $date[1] . $date[2] . $date[3]));
     $to_json_array[$k]["stunde"] = utf8_encode($result_array[$k][2]);
     $to_json_array[$k]["lehrer"] = utf8_encode($result_array[$k][5]);
     $to_json_array[$k]["vertreter"] = utf8_encode($result_array[$k][6]);
@@ -40,7 +41,7 @@ while($k < sizeof($result_array)) {
     $to_json_array[$k]["vertretungsfach"] = utf8_encode($result_array[$k][9]);
     $to_json_array[$k]["raum"] = utf8_encode($result_array[$k][11]);
     $to_json_array[$k]["vertretungsraum"] = utf8_encode($result_array[$k][12]);
-    $to_json_array[$k]["klasse"] = utf8_encode($result_array[$k][14]);
+    $to_json_array[$k]["klasse"] = str_replace('~', ', ', utf8_encode($result_array[$k][14]));
     $k++;
 }
 
