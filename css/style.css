@@ -43,6 +43,10 @@ h2 {
 	padding-left: 10px;
 }
 
+p {
+	text-align: justify;
+}
+
 #right {
     background-color:#000000;
     width:50%;
@@ -62,14 +66,13 @@ h2 {
     width:150px;
 }
 
-<<<<<<< HEAD
 #sport {
     background-color:#FFFFFF;
     position:absolute;
     bottom:0%;
     left:0%;
     height:400px;
-    width:45%;
+    width:50%;
 }
 
 #tagesschau {
@@ -78,9 +81,9 @@ h2 {
     bottom:0%;
     right:0%;
     height:400px;
-    width:54%;
+    width:50%;
 }
-=======
+
 table {
 	border: 0px;
 	width: 100%;
@@ -102,4 +105,3 @@ table tr td {
 table tr td.grey {
 	background-color: #DDDDDD;
 }
->>>>>>> Vertretungsplan wird angezeigt und ist animiert

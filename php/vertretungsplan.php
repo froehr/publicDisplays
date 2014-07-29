@@ -14,6 +14,7 @@ while($i < sizeof($csv)) {
 
 // Datum für heute laden um nur aktuelle Meldungen zu zeigen
 $today = date('Ymd', time());
+$today='20140605';
 
 // Die Zeilen auswählen, die den heutigen Tag betreffen
 $result_array = [];
