@@ -42,3 +42,21 @@ body {
     height:150px;
     width:150px;
 }
+
+#sport {
+    background-color:#FFFFFF;
+    position:absolute;
+    bottom:0%;
+    left:0%;
+    height:400px;
+    width:45%;
+}
+
+#tagesschau {
+    background-color:#FFFFFF;
+    position:absolute;
+    bottom:0%;
+    right:0%;
+    height:400px;
+    width:54%;
+}
