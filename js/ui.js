@@ -53,3 +53,51 @@ function showTagesschauNews(data) {
 	$('#tagesschau').append('<div style="padding: 5px;">' + sport_news_html + '</div>');
 
 }
+
+function showWeather(data) {
+	data = data['list'];
+
+	var weather_table_content_html = '';
+	var tag = 'Heute:';
+	$.each(data, function(key, val) {
+		console.log(val);
+		if (key < 2) {
+			weather_table_content_html += '<tr><td><b>' + tag + '</b></td></tr>' +
+										'<tr>' +
+											'<td>Temperatur:</td>' +
+											'<td>' + val['temp'].day + '°C' + 
+											'</td>' +
+										'</tr>' +
+										'<tr>' +
+											'<td>Luftfeuchtigkeit:</td>' +
+											'<td>' + val.humidity + '%' +'</td>' +
+										'</tr>' +
+										'<tr>' +
+											'<td>Luftdruck:</td>' + 
+											'<td>' + val.pressure + ' hPa' + '</td>' +
+										'</tr>' +
+										'<tr>' +
+											'<td>Wingeschwindigkeit:</td>' +
+											'<td>' + val.speed + ' m/s' + '</td>' +
+										'</tr>' +
+										'<tr>' +
+											'<td>Witterung:</td>' + 
+											'<td>' +
+												val['weather'][0].description +
+											'</td>' +
+										'</tr>';
+			tag = 'Morgen:';							
+			
+		}								
+	});
+
+	var weather_html =	'<table>' +
+						weather_table_content_html + 	
+					'</table>';
+					
+	$('#wetter').append(weather_html);				
+} 
+
+getSport();
+getTagesschau();
+getWeather();
