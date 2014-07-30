@@ -34,7 +34,6 @@ body {
     position:absolute;
     top:0px;
     left:0px;
-	background-color: #FFFFFF;
 	z-index: 1;
 }
 
@@ -48,7 +47,6 @@ p {
 }
 
 #right {
-    background-color:#000000;
     width:50%;
     height:100%;
     float:left;
@@ -58,7 +56,6 @@ p {
 }
 
 #mensa {
-    background-color:#FFFFFF;
     position:absolute;
     top:15%;
     left:55%;
@@ -66,22 +63,44 @@ p {
     width:150px;
 }
 
+#wetter {
+    position:absolute;
+    top:0%;
+    left:50%;
+    height:50%;
+	max-height:50%;
+    width:50%;
+	overflow: hidden;
+}
+
+#schulnews {
+    position:absolute;
+    top:0%;
+    left:0%;
+    height:50%;
+	max-height:50%;
+    width:50%;
+	overflow: hidden;
+}
+
 #sport {
-    background-color:#FFFFFF;
     position:absolute;
     bottom:0%;
     left:0%;
-    height:400px;
+    height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 #tagesschau {
-    background-color:#FFFFFF;
     position:absolute;
     bottom:0%;
     right:0%;
-    height:400px;
+    height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 table {

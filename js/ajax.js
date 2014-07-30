@@ -18,6 +18,25 @@ $.getJSON('php/vertretungsplan.php', function(data) {
 	animateTheTable(data.length, 'up');
 });
 
+$.getJSON('php/schulnews.php', function(data) {
+	var schulnews_html = '';
+	$.each(data, function(key, val) {
+		var posDot = val.news.indexOf('.') + 1;
+		var posColon = val.news.indexOf(':') + 1;
+		var pos = 0;
+		if ( posDot < posColon || posColon == 0 ) {
+			pos = posDot;
+		}
+		else {
+			pos = posColon;
+		}
+		var part1 = val.news.substr(0, pos);
+		var part2 = val.news.substr(pos, val.news.length - pos);
+		schulnews_html += '<b>' + part1 + '</b><p>' + part2 + '</p>';
+	});
+	$('#schulnews').append('<div style="padding: 5px;">' + schulnews_html + '</div>');
+});
+
 function getSport() {
 
     var Action;
