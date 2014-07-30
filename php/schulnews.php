@@ -21,14 +21,15 @@ $url = 'http://www.gesamtschule.havixbeck.de/';
 $content = file_get_contents($url);
         
 $dom = new DOMDocument;
-	@$dom->loadHTML($content); // suppress parsing/invalid html errors
-	$table = $dom->getElementsByTagName('table')->item(0); // first table = data value table
-	$tbody = $table->getElementsByTagName('tbody')->item(0);
-	$rows = $tbody->getElementsByTagName('tr');
-	
-        for ($i = 0; $i < $rows->length; $i++) {
-		$cols[$i] = $rows->item($i)->getElementsByTagName('td');
-        }    
+@$dom->loadHTML($content); // suppress parsing/invalid html errors
+$table = $dom->getElementsByTagName('table')->item(0); // first table = data value table
+$tbody = $table->getElementsByTagName('tbody')->item(0);
+$rows = $tbody->getElementsByTagName('tr');
+
+for ($i = 0; $i < $rows->length; $i++) {
+	$cols[$i] = $rows->item($i)->getElementsByTagName('td');
+}
+
        
 $i = 0;
 

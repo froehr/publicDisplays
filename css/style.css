@@ -68,7 +68,9 @@ p {
     top:0%;
     left:50%;
     height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 #schulnews {
@@ -76,7 +78,9 @@ p {
     top:0%;
     left:0%;
     height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 #sport {
@@ -84,7 +88,9 @@ p {
     bottom:0%;
     left:0%;
     height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 #tagesschau {
@@ -92,7 +98,9 @@ p {
     bottom:0%;
     right:0%;
     height:50%;
+	max-height:50%;
     width:50%;
+	overflow: hidden;
 }
 
 table {
