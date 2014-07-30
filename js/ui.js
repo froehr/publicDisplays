@@ -60,9 +60,10 @@ function showWeather(data) {
 	var weather_table_content_html = '';
 	var tag = 'Heute:';
 	$.each(data, function(key, val) {
-		console.log(val);
 		if (key < 2) {
-			weather_table_content_html += '<tr><td><b>' + tag + '</b></td></tr>' +
+			weather_table_content_html += '<tr><td><b>' + tag + '</b></td>' +
+											'<td><img src="http://openweathermap.org/img/w/' + val['weather'][0].icon + '.png" /><td>' +
+										'</tr>' +
 										'<tr>' +
 											'<td>Temperatur:</td>' +
 											'<td>' + val['temp'].day + '°C' + 
