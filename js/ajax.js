@@ -1,80 +1,19 @@
 $.getJSON('php/vertretungsplan.php', function(data) {
-	$.each(data, function(key, val) {
-		var style = '';
-		if ( key % 2 == 0 ) { style = ' class="grey"'; }
-		var row = 	'<tr>' +
-						'<td width="10%"' + style + '>' + val.datum + '</td>' +
-						'<td width="7%" align="center"' + style + '>' + val.fach + '</td>' +
-						'<td width="8%" align="center"' + style + '>' + val.stunde + '</td>' +
-						'<td width="20%"' + style + '>' + val.klasse + '</td>' +
-						'<td width="11%" align="center"' + style + '>' + val.lehrer + '</td>' +
-						'<td width="11%" align="center"' + style + '>' + val.raum + '</td>' +
-						'<td width="11%" align="center"' + style + '>' + val.vertretungsfach + '</td>' +
-						'<td width="11%" align="center"' + style + '>' + val.vertreter + '</td>' +
-						'<td width="11%" align="center"' + style + '>' + val.vertretungsraum + '</td>' +
-					'</tr>';
-		$('#vertretungsplan').append(row);
-	});
-	animateTheTable(data.length, 'up');
+	showVertretungsplan(data);
 });
 
 $.getJSON('php/schulnews.php', function(data) {
-	var schulnews_html = '';
-	$.each(data, function(key, val) {
-		var posDot = val.news.indexOf('.') + 1;
-		var posColon = val.news.indexOf(':') + 1;
-		var pos = 0;
-		if ( posDot < posColon || posColon == 0 ) {
-			pos = posDot;
-		}
-		else {
-			pos = posColon;
-		}
-		var part1 = val.news.substr(0, pos);
-		var part2 = val.news.substr(pos, val.news.length - pos);
-		schulnews_html += '<b>' + part1 + '</b><p>' + part2 + '</p>';
-	});
-	$('#schulnews').append('<div style="padding: 5px;">' + schulnews_html + '</div>');
+	showSchulnews(data);
 });
 
-function getSport() {
+$.getJSON('php/sport.php', function(data) {
+	showSportNews(data);
+});
 
-    var Action;
+$.getJSON('php/tagesschau.php', function(data) {
+	showTagesschauNews(data);
+});
 
-    $.ajax({
-        type: "POST",
-        url: 'php/sport.php',
-        dataType: 'json',
-        data: {Action:'GetAll'},
-        success: function(data) {
-            showSportNews(data);
-        },
-        error: function(textStatus, error){
-        }
-            
-    });
-}
-
-function getTagesschau() {
-    
-    var Action;
-
-    $.ajax({
-        type: "POST",
-        url: 'php/tagesschau.php',
-        dataType: 'json',
-        data: {Action:'GetAll'},
-        success: function(data) {
-            showTagesschauNews(data);
-        },
-        error: function(textStatus, error){
-        }
-            
-    });
-}
-
-function getWeather() {
-    $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?lat=51.975942&lon=7.415683&cnt=10&units=metric&mode=json&lang=de', function (data) {
-        showWeather(data);
-    });    
-}
+$.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?lat=51.975942&lon=7.415683&cnt=10&units=metric&mode=json&lang=de', function(data) {
+	showWeather(data); 
+});

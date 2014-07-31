@@ -7,7 +7,7 @@ $csv = explode(chr(10), $file);
 
 // Jede Zeile mit str_getcsv verarbeiten um jedes Element in eigenem Arrayfeld zu speichern
 $i = 0;
-while($i < sizeof($csv)) { 
+while ( $i < sizeof($csv) ) { 
     $input_array[$i] = str_getcsv($csv[$i], ';');
     $i++;
 }
@@ -20,9 +20,9 @@ $today='20140605';
 $result_array = [];
 $i = 0;
 $j = 0;
-while($i < sizeof($input_array)-1) {
+while ( $i < sizeof($input_array)-1 ) {
     // Wenn der Eintrag des gültigen Datums zum heutigen Datum passt wird diese Zeile im $result_array gespeichert um später weiterverarbeitet zu werden
-    if($today == $input_array[$i][1]) {
+    if ( $today == $input_array[$i][1] ) {
         $result_array[$j] = $input_array[$i];
         $j++; 
     }
@@ -32,7 +32,7 @@ while($i < sizeof($input_array)-1) {
 // Array mit Namen für JSON aufbauen
 $to_json_array = [];
 $k = 0;
-while($k < sizeof($result_array)) {
+while ( $k < sizeof($result_array) ) {
 	$date = $result_array[$k][1];
     $to_json_array[$k]["datum"] = date('d.m.Y', mktime(0, 0, 0, $date[4] . $date[5], $date[6] . $date[7], $date[0] . $date[1] . $date[2] . $date[3]));
     $to_json_array[$k]["stunde"] = utf8_encode($result_array[$k][2]);
