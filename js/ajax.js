@@ -73,5 +73,8 @@ function getTagesschau() {
     });
 }
 
-getSport();
-getTagesschau();
+function getWeather() {
+    $.getJSON('http://api.openweathermap.org/data/2.5/forecast/daily?lat=51.975942&lon=7.415683&cnt=10&units=metric&mode=json&lang=de', function (data) {
+        showWeather(data);
+    });    
+}
